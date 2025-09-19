@@ -52,9 +52,6 @@ Requirements:
 - Make it engaging and professional
 - Add relevant emojis
 - Keep it concise but impactful
-
-Example format:
-"[Name] is a [medium] artist from [location] who creates [style] works focusing on [themes]. Their art [achievement/recognition]. [Current work/exhibition info]. 🎨✨"
 `;
 
     try {
