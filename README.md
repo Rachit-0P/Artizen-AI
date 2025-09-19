@@ -37,7 +37,7 @@
 
 ### Step 1: Clone the repository
 ```bash
-git clone https://github.com/Rachit-0P/Artizen-AI.git
+git clone https://github.com/MedhaStuti/Artizen-AI.git
 cd Artizen-AI
 ```
 
@@ -138,7 +138,7 @@ This project is licensed under the MIT License.
 ---
 
 ## 👨‍💻 Developed by
-[Codesthetic](https://codesthetic.com) - Crafting digital experiences with AI
+Grootieeeeeeeeeeeeeeee - Crafting digital experiences with AI
 
 ---
 
