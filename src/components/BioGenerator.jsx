@@ -111,17 +111,6 @@ Example format:
           <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
             Create compelling professional bios for artists. Perfect for portfolios, exhibitions, and social media.
           </p>
-          
-          {/* Provider Status */}
-          {configuredProviders.length > 0 ? (
-            <div className="mt-4 inline-flex items-center px-3 py-1 rounded-full text-sm bg-green-100 text-green-800">
-              ✅ {configuredProviders.length} AI provider{configuredProviders.length > 1 ? 's' : ''} ready
-            </div>
-          ) : (
-            <div className="mt-4 inline-flex items-center px-3 py-1 rounded-full text-sm bg-red-100 text-red-800">
-              ⚠️ No AI providers configured
-            </div>
-          )}
         </div>
 
         {/* Main Content */}
@@ -233,15 +222,6 @@ Example format:
               </div>
             )}
 
-            {/* Success - Used Provider */}
-            {usedProvider && (
-              <div className="mb-6 text-center">
-                <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
-                  ✅ Generated using {usedProvider}
-                </span>
-              </div>
-            )}
-
             {/* Generated Bio Output */}
             {bio && (
               <div className="bg-gradient-to-r from-purple-50 to-pink-50 border-2 border-purple-200 rounded-xl p-6">
@@ -265,8 +245,7 @@ Example format:
         {/* Footer */}
         <footer className="mt-12 text-center text-sm text-gray-500">
           <p>
-            Powered by Multiple AI Providers (Gemini, Cohere, OpenAI) | 
-            <a href="https://codesthetic.com" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-700 underline ml-1">
+            <a href="https://codesthetic.com" target="_blank" rel="noopener noreferrer" className="text-purple-600 hover:text-purple-700 underline">
               Developed by Codesthetic
             </a>
           </p>

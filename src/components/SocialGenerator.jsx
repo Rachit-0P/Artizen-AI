@@ -177,17 +177,6 @@ Tagline: [Your tagline here]
           <p className="text-gray-600 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed">
             Create engaging social media posts and catchy taglines tailored to your audience and platform.
           </p>
-          
-          {/* Provider Status */}
-          {configuredProviders.length > 0 ? (
-            <div className="mt-4 inline-flex items-center px-3 py-1 rounded-full text-sm bg-green-100 text-green-800">
-              ✅ {configuredProviders.length} AI provider{configuredProviders.length > 1 ? 's' : ''} ready
-            </div>
-          ) : (
-            <div className="mt-4 inline-flex items-center px-3 py-1 rounded-full text-sm bg-red-100 text-red-800">
-              ⚠️ No AI providers configured
-            </div>
-          )}
         </div>
 
         {/* Example Prompts */}
@@ -377,15 +366,6 @@ Tagline: [Your tagline here]
               </div>
             )}
 
-            {/* Success - Used Provider */}
-            {usedProvider && (
-              <div className="mb-6 text-center">
-                <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-green-100 text-green-800">
-                  ✅ Generated using {usedProvider}
-                </span>
-              </div>
-            )}
-
             {/* Generated Output */}
             {(output.caption || output.tagline) && (
               <div className="space-y-6">
@@ -440,8 +420,7 @@ Tagline: [Your tagline here]
         {/* Footer */}
         <footer className="mt-12 text-center text-sm text-gray-500">
           <p>
-            Powered by Multiple AI Providers (Gemini, Cohere, OpenAI) | 
-            <a href="https://codesthetic.com" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline ml-1">
+            <a href="https://codesthetic.com" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">
               Developed by Codesthetic
             </a>
           </p>

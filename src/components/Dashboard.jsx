@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getConfiguredProviders } from '../utils/aiProviders';
 import VideoGenerator from './VideoGenerator';
-import PricingTool from './PricingTool';
 import PredictionsChart from './PredictionsChart';
 import Notifications from './Notifications';
 
@@ -80,8 +79,6 @@ export default function Dashboard() {
     switch (id) {
       case 'videos':
         return <VideoGenerator />;
-      case 'pricing':
-        return <PricingTool />;
       case 'predictions':
         return <PredictionsChart />;
       case 'notifications':
@@ -102,19 +99,6 @@ export default function Dashboard() {
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             AI-powered tools to help artists create, promote, and sell their work with professional marketing content.
           </p>
-          
-          {/* API Status */}
-          <div className="mt-6">
-            {configuredProviders.length > 0 ? (
-              <div className="inline-flex items-center px-4 py-2 rounded-full bg-green-100 text-green-800 font-medium">
-                ✅ {configuredProviders.length} AI provider{configuredProviders.length > 1 ? 's' : ''} ready
-              </div>
-            ) : (
-              <div className="inline-flex items-center px-4 py-2 rounded-full bg-red-100 text-red-800 font-medium">
-                ⚠️ No AI providers configured
-              </div>
-            )}
-          </div>
         </div>
 
         {/* Main Features Grid */}
@@ -151,8 +135,8 @@ export default function Dashboard() {
         {/* Demo Features */}
         <div className="mb-16">
           <h2 className="text-2xl font-bold text-gray-800 mb-8 text-center">🧪 Demo Features</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {DEMO_FEATURES.map((feature) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {DEMO_FEATURES.filter(feature => feature.id !== 'pricing').map((feature) => (
               <button
                 key={feature.id}
                 onClick={() => setSelectedDemo(feature)}
@@ -226,39 +210,22 @@ export default function Dashboard() {
 
           <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-8">
             <h3 className="text-xl font-bold text-gray-800 mb-6 flex items-center">
-              📊 Usage Stats
+              📊 App Stats
             </h3>
             <div className="space-y-4">
-              <div className="flex justify-between items-center">
-                <span className="text-gray-600">AI Providers Available</span>
-                <span className="font-semibold text-gray-800">{configuredProviders.length}</span>
-              </div>
               <div className="flex justify-between items-center">
                 <span className="text-gray-600">Active Tools</span>
                 <span className="font-semibold text-gray-800">{MAIN_FEATURES.length}</span>
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-gray-600">Demo Features</span>
-                <span className="font-semibold text-gray-800">{DEMO_FEATURES.length}</span>
+                <span className="font-semibold text-gray-800">{DEMO_FEATURES.filter(f => f.id !== 'pricing').length}</span>
               </div>
             </div>
-            
-            {configuredProviders.length > 0 && (
-              <div className="mt-6 p-4 bg-green-50 rounded-lg border border-green-200">
-                <h4 className="font-semibold text-green-800 mb-2">Available Providers:</h4>
-                <div className="flex flex-wrap gap-2">
-                  {configuredProviders.map((provider, index) => (
-                    <span key={index} className="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full">
-                      {provider}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            )}
           </div>
         </div>
 
-        {/* Demo Modal */}
+        {/* Modal for demo content */}
         {selectedDemo && (
           <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 z-50">
             <div className="bg-white rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden">
